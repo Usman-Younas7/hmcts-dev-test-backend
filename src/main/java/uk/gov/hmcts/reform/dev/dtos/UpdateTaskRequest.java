@@ -19,6 +19,7 @@ import lombok.Setter;
 @Builder
 public class UpdateTaskRequest {
 
+    // Full update payload mirrors create, but is kept separate so it can evolve independently.
     @Schema(description = "Title of the task", example = "Prepare hearing bundle")
     @NotBlank(message = "Title is required")
     @Size(max = 255, message = "Title must be 255 characters or fewer")

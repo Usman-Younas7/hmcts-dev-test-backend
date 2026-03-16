@@ -13,6 +13,7 @@ import uk.gov.hmcts.reform.dev.dtos.ApiErrorResponse;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // Centralise API error formatting so every failure reaches the frontend in the same shape.
     @ExceptionHandler(TaskNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleTaskNotFound(TaskNotFoundException exception) {
         return buildErrorResponse(HttpStatus.NOT_FOUND, exception.getMessage(), Map.of());
@@ -26,6 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiErrorResponse> handleValidation(MethodArgumentNotValidException exception) {
         Map<String, String> fieldErrors = new LinkedHashMap<>();
+        // Preserve field order so validation summaries are stable and easier to read.
         exception.getBindingResult().getFieldErrors().forEach(error ->
             fieldErrors.put(error.getField(), error.getDefaultMessage())
         );

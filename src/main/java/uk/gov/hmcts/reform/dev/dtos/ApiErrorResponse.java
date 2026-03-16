@@ -10,6 +10,7 @@ import lombok.Getter;
 @Schema(description = "Standard API error response")
 public class ApiErrorResponse {
 
+    // The frontend uses one error shape for both validation failures and domain errors.
     @Schema(description = "Timestamp when the error occurred", example = "2026-03-10T14:30:00")
     private final String timestamp;
 

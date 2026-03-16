@@ -35,6 +35,7 @@ import uk.gov.hmcts.reform.dev.services.TaskService;
 @Tag(name = "Tasks", description = "Task management endpoints")
 public class TaskController {
 
+    // Keep HTTP concerns here and delegate task rules to the service layer.
     private final TaskService taskService;
 
     @Operation(

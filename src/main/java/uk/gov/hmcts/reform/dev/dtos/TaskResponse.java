@@ -16,6 +16,7 @@ import lombok.Setter;
 @Schema(description = "Task response payload")
 public class TaskResponse {
 
+    // Response DTO lets us control exactly what leaves the API.
     @Schema(description = "Unique task ID", example = "1")
     private Long id;
 

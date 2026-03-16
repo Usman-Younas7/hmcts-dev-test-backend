@@ -9,6 +9,7 @@ import uk.gov.hmcts.reform.dev.models.TaskStatus;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
+    // The UI lists tasks by due date, so the repository bakes that ordering in.
     List<Task> findAllByOrderByDueDateTimeAsc();
 
     List<Task> findAllByStatusOrderByDueDateTimeAsc(TaskStatus status);

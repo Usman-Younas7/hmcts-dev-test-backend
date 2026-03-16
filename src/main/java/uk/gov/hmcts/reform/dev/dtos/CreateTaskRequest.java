@@ -20,6 +20,7 @@ import lombok.Setter;
 @Builder
 public class CreateTaskRequest {
 
+    // Request DTO keeps API validation close to the boundary of the application.
     @Schema(description = "Title of the task", example = "Prepare hearing bundle")
     @NotBlank(message = "Title is required")
     @Size(max = 255, message = "Title must be 255 characters or fewer")

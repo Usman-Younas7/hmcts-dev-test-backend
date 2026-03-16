@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.dev.exceptions;
 
+// Raised when a status string cannot be mapped onto the enum used by the domain model.
 public class InvalidTaskStatusException extends RuntimeException {
 
     public InvalidTaskStatusException(String status) {

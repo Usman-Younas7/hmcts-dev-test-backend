@@ -26,6 +26,7 @@ import lombok.Setter;
 @Builder
 public class Task {
 
+    // This entity maps directly onto the tasks table created by Flyway.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,6 +52,7 @@ public class Task {
 
     @PrePersist
     protected void onCreate() {
+        // Set audit fields in one place so create paths stay consistent.
         LocalDateTime now = LocalDateTime.now();
         createdAt = now;
         updatedAt = now;
@@ -61,6 +63,7 @@ public class Task {
 
     @PreUpdate
     protected void onUpdate() {
+        // Only updatedAt changes on edits; createdAt remains fixed.
         updatedAt = LocalDateTime.now();
     }
 }

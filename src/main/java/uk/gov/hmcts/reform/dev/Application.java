@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SuppressWarnings("HideUtilityClassConstructor") // Spring needs a constructor, its not a utility class
 public class Application {
 
+    // Standard Spring Boot entry point for the backend service.
     public static void main(final String[] args) {
         SpringApplication.run(Application.class, args);
     }

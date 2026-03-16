@@ -9,6 +9,7 @@ public final class TaskMapper {
         // Utility class
     }
 
+    // Keep entity-to-response mapping in one place so controller/service code stays focused.
     public static TaskResponse toResponse(Task task) {
         return TaskResponse.builder()
             .id(task.getId())

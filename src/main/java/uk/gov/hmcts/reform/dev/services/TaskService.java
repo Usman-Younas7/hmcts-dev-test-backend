@@ -19,6 +19,7 @@ import uk.gov.hmcts.reform.dev.repositories.TaskRepository;
 @RequiredArgsConstructor
 public class TaskService {
 
+    // The service owns normalisation and domain-level checks before data is persisted.
     private final TaskRepository taskRepository;
 
     @Transactional
@@ -85,6 +86,7 @@ public class TaskService {
     }
 
     private TaskStatus parseStatus(String status) {
+        // Accept simple string input from the API and convert it to the enum used internally.
         if (status == null || status.isBlank()) {
             throw new InvalidTaskStatusException(String.valueOf(status));
         }

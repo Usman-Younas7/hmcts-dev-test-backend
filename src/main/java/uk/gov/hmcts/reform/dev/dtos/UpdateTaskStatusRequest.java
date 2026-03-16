@@ -14,6 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UpdateTaskStatusRequest {
 
+    // Small dedicated DTO keeps the status-only endpoint explicit.
     @Schema(
         description = "New task status",
         example = "COMPLETED",
